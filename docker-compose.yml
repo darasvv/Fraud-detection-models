@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: fraud_postgres
+    environment:
+      POSTGRES_USER: fraud_user
+      POSTGRES_PASSWORD: fraud_pass
+      POSTGRES_DB: fraud_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fraud_network
+
+  mlflow:
+    image: python:3.10-slim
+    container_name: fraud_mlflow
+    command: sh -c "pip install mlflow psycopg2-binary && mlflow server --backend-store-uri postgresql://fraud_user:fraud_pass@postgres:5432/fraud_db --default-artifact-root /mlflow_artifacts --host 0.0.0.0 --port 5001"
+    ports:
+      - "5001:5001"
+    depends_on:
+      - postgres
+    networks:
+      - fraud_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: fraud_grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - fraud_network
+
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: fraud_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    networks:
+      - fraud_network
+
+  bot:
+    build: .
+    container_name: fraud_bot
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+    depends_on:
+      - postgres
+    networks:
+      - fraud_network
+    restart: unless-stopped
+
+networks:
+  fraud_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
