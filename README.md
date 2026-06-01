@@ -11,7 +11,7 @@ Machine learning project for fraud detection with ensemble models, MLflow tracki
 - MLflow для отслеживания экспериментов
 - PostgreSQL для хранения метрик и логов
 - Grafana для визуализации метрик
-- 
+
 # Результаты модели
 | Метрика | Значение |
 |---------|----------|
