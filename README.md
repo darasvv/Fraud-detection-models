@@ -20,10 +20,6 @@ Machine learning project for fraud detection with ensemble models, MLflow tracki
 | F1-score | 0.2171 |
 | ROC-AUC | 0.9893 (98.93%) |
 
-### Требования
-- Docker Desktop
-- Python 3.10+
-- Telegram Bot Token (получить у @BotFather)
 
 # Требования к транзакции
 
@@ -40,3 +36,7 @@ Machine learning project for fraud detection with ensemble models, MLflow tracki
 | 7 | Час | Время транзакции (0-23) | 14 |
 | 8 | Расстояние | Расстояние до магазина (км) | 3.5 |
 
+# Требования
+- Docker Desktop
+- Python 3.10+
+- Telegram Bot Token (получить у @BotFather)
