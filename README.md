@@ -15,8 +15,8 @@ Machine learning project for fraud detection with ensemble models, MLflow tracki
 # Результаты модели
 | Метрика | Значение |
 |---------|----------|
-| Recall (Полнота) | 0.9140 (91.40%) |
-| Precision (Точность) | 0.1232 (12.32%) |
+| Recall | 0.9140 (91.40%) |
+| Precision | 0.1232 (12.32%) |
 | F1-score | 0.2171 |
 | ROC-AUC | 0.9893 (98.93%) |
 
