@@ -10,14 +10,14 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 NEW_TOKEN = "8884482898:AAHYonhJAAno9cXFMT4fPiamnfGFx3njXXI"
 MODEL_PATH = "ensemble_my_models.pkl"
 
-# PostgreSQL настройки
+
 DB_HOST = os.getenv("POSTGRES_HOST", "localhost")
 DB_PORT = os.getenv("POSTGRES_PORT", "5432")
 DB_NAME = os.getenv("POSTGRES_DB", "fraud_db")
 DB_USER = os.getenv("POSTGRES_USER", "fraud_user")
 DB_PASSWORD = os.getenv("POSTGRES_PASSWORD", "fraud_pass")
 
-# Загрузка модели
+
 try:
     model = joblib.load(MODEL_PATH)
     print("Модель загружена")
