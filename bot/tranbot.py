@@ -6,8 +6,13 @@ import psycopg2
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
+import os
+from dotenv import load_dotenv
 
-NEW_TOKEN = "8884482898:AAHYonhJAAno9cXFMT4fPiamnfGFx3njXXI"
+load_dotenv()
+
+
+NEW_TOKEN = os.getenv("NEW_TOKEN")
 MODEL_PATH = "ensemble_my_models.pkl"
 
 
