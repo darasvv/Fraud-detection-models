@@ -16,11 +16,11 @@ NEW_TOKEN = os.getenv("NEW_TOKEN")
 MODEL_PATH = "ensemble_my_models.pkl"
 
 
-DB_HOST = os.getenv("POSTGRES_HOST", "localhost")
-DB_PORT = os.getenv("POSTGRES_PORT", "5432")
-DB_NAME = os.getenv("POSTGRES_DB", "fraud_db")
-DB_USER = os.getenv("POSTGRES_USER", "fraud_user")
-DB_PASSWORD = os.getenv("POSTGRES_PASSWORD", "fraud_pass")
+DB_HOST = os.getenv("POSTGRES_HOST")
+DB_PORT = os.getenv("POSTGRES_PORT")
+DB_NAME = os.getenv("POSTGRES_DB")
+DB_USER = os.getenv("POSTGRES_USER")
+DB_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 
 
 try:
